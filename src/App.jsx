@@ -131,6 +131,7 @@ const COLORES = [
   "Rojo Kings",
   "Amarillo Kurkuma",
   "Verde Vibrante",
+  "falta el color gris ascot",
 ];
 
 const ASESORES = [
