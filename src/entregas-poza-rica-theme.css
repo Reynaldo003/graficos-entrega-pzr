@@ -1,0 +1,75 @@
+
+/* Entregas VW Poza Rica - Diseño estilo Orizaba */
+
+.dashboard-page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  color: #131e5c;
+  background: #f1f5fb;
+}
+
+/* Imagen principal Volkswagen y degradado integrado */
+.dashboard-page::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 430px;
+
+  background-image: url("/header-vw.png");
+  background-position: center top;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+
+  pointer-events: none;
+}
+
+/* Evitamos superponer otra imagen sobre el encabezado */
+.dashboard-page > div > header {
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-page > div > header::before {
+  content: none;
+}
+
+/* Contraste del indicador principal */
+.dashboard-page .dashboard-kpi-primary {
+  color: #132b5a;
+}
+
+/* Scroll de agenda */
+.dashboard-page .calendar-scroll {
+  scrollbar-color: #a7b8d3 #f1f5f9;
+  scrollbar-width: thin;
+}
+
+/* Accesibilidad */
+.dashboard-page button:focus-visible,
+.dashboard-page input:focus-visible,
+.dashboard-page select:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+/* Respetar preferencias de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-page *,
+  .dashboard-page *::before,
+  .dashboard-page *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Adaptación móvil */
+@media (max-width: 768px) {
+  .dashboard-page::before {
+    height: 300px;
+    background-size: auto 300px;
+    background-position: center top;
+  }
+}
